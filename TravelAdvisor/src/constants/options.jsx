@@ -62,4 +62,4 @@ export const SelectBudgetOptions=[
     },
 ]
 
-export const AI_PROMPT='Generate Travel Plan For Location: {location} for {people} with a {budget} budget, give me hotel options list with hotel Name, hotel Address, hotel Price, hotel Image URL, geo Coordinates, rating, descriptions and suggest itinerary with place Name, place Details, place Image URL, geo Coordinates, ticket Price, best Time To Visit, time Travel each of the location for {travelDays} days with each day plan in JSON format'
+export const AI_PROMPT='Generate travelPlan (an attribute) For Location: {location} for {people} with a {budget} budget in {travelDays} days, give me hotelOptions list with hotelName, hotelAddress, hotelPrice (in VND), hotelImageURL, geoCoordinates, rating, descriptions and suggest itinerary with placeName, placeDetails, placeImageURL, geoCoordinates, ticketPrice (in VND), bestTimeToVisit, timeToExplore each of the location with each day plan labeled (example day: 1, day: 2...) in JSON format (and there must be no null variable in response)'

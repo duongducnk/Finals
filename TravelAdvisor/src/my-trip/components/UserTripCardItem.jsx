@@ -1,10 +1,7 @@
-import { Button } from '@/components/ui/button';
 import { GetPlaceDetails, GetPlacePhoto } from '@/service/GlobalApi';
 import React, { useEffect, useState } from 'react'
-import { IoIosSend } from "react-icons/io";
 
-
-function InfoSection({trip}) {
+function UserTripCardItem({trip}) {
 
     const [photoUrl, setPhotoUrl] = useState();
     useEffect(() => {
@@ -51,24 +48,16 @@ function InfoSection({trip}) {
         }
     }
 
+  
   return (
     <div>
-        <img src={photoUrl?photoUrl:'/placeholder.jpg'} className='h-[340px] w-full object-cover rounded-xl' />
-        <div className='flex justify-between items-center'>
-            <div className='my-5 flex flex-col gap-2'>
-                <h2 className='font-bold text-2xl'> {trip?.userSelection?.location} </h2>
-                <div className='flex gap-5'>
-                    <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500 '>📅 {trip?.userSelection?.travelDays} Days</h2>
-                    <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-md'>💵 {trip?.userSelection?.budget} budget</h2>
-                    <h2 className='p-1 px-3 bg-gray-200 rounded-full text-gray-500 text-md'>👨‍👩‍👦 Number of traveler: {trip?.userSelection?.people}</h2>
-                </div>
-            </div>
-            <Button>
-                <IoIosSend />
-            </Button>
-        </div>
+      <img src="/placeholder.jpg" className="object-cover rounded-xl" />
+      <div>
+        <h2 className='font-bold text-lg'> {trip?.userSelection?.location} </h2>
+        <h2 className='text-sm text-gray-500'>{trip?.userSelection?.travelDays} days trip with {trip?.userSelection?.budget} budget</h2>
+      </div>
     </div>
   )
 }
 
-export default InfoSection
+export default UserTripCardItem

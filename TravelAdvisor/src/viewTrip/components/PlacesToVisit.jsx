@@ -11,11 +11,11 @@ function PlacesToVisit({trip}) {
                 <div key={itineraryIndex} className='mt-5'>
                     <h2 className='font-medium text-lg'>Day {item.day}</h2>
                         <div className='grid md:grid-cols-2 gap-5'>
-                            {item.activities?.map((activities, activitiesIndex) => (
-                                <div key={activitiesIndex}>
+                            {item.placeToVisit?.map((placeToVisit, placeToVisitIndex) => (
+                                <div key={placeToVisitIndex}>
                                     <div className='my-3'>
-                                        <h2 className='font-medium text-sm text-orange-600'>{activities.bestTimeToVisit}</h2>
-                                        <PlaceCardItem activities={activities}/>
+                                        <h2 className='font-medium text-sm text-orange-600'>{placeToVisit.bestTimeToVisit}</h2>
+                                        <PlaceCardItem placeToVisit={placeToVisit}/>
                                     </div>
                                 </div>
                             ))}

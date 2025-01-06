@@ -107,7 +107,7 @@ function CreateTrip() {
 
       const result = await chatSession.sendMessage(FINAL_PROMPT);
 
-      console.log("---",result?.response?.text());
+      //console.log("---",result?.response?.text());
       setLoading(false);
       SaveAiTrip(result?.response?.text());
     };

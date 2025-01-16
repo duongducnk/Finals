@@ -12,6 +12,8 @@ function Header() {
 
   const user = JSON.parse(localStorage.getItem('user'));
   const [openDialog, setOpenDialog] = useState(false);
+  
+
   useEffect(() => {
     console.log(user)
   }, [])
@@ -38,7 +40,7 @@ function Header() {
 
   return (
     <div className='p-3 shadow-sm flex justify-between items-center px-5'>
-        <img src='/logo.svg'/>    
+        <img src='/logo.svg' />    
         <div>
           {
             user?

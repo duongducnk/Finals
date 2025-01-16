@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
-import { useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../ui/dialog';
 import { FcGoogle } from 'react-icons/fc';
 import axios from 'axios';
@@ -12,6 +12,8 @@ function Header() {
 
   const user = JSON.parse(localStorage.getItem('user'));
   const [openDialog, setOpenDialog] = useState(false);
+  
+
   useEffect(() => {
     console.log(user)
   }, [])
@@ -38,7 +40,9 @@ function Header() {
 
   return (
     <div className='p-3 shadow-sm flex justify-between items-center px-5'>
-        <img src='/logo.svg'/>    
+      <a href='/'>
+        <img src='/logo.svg' className='cursor-pointer' />  
+      </a>  
         <div>
           {
             user?

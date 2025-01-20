@@ -62,7 +62,11 @@ function Header() {
                     googleLogout();
                     localStorage.clear();
                     window.location.reload();
-                  }}>Logout</h2>
+                  }}>
+                    <a href="/">
+                      Logout
+                    </a>
+                  </h2>
                 </PopoverContent>
               </Popover>
 

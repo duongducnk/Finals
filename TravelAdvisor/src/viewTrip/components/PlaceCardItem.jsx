@@ -44,7 +44,8 @@ function PlaceCardItem({placeToVisit}) {
 
 
   return (
-    <Link to={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeToVisit.placeName || '')}, ${encodeURIComponent(placeToVisit.geoCoordinates.latitude || '')}, ${encodeURIComponent(placeToVisit.geoCoordinates.longitude || '')}`} target='_blank'>
+    <Link to={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeToVisit.placeName || '')}`} target='_blank'>
+                                                                                                              {/* , ${encodeURIComponent(placeToVisit.geoCoordinates.latitude || '')}, ${encodeURIComponent(placeToVisit.geoCoordinates.longitude || '')} */}
       <div className='border rounded-xl p-3 mt-2 flex gap-5 hover:scale-105 hover:shadow-md transition-all cursor-pointer'>
           <img src={photoUrl?photoUrl:'/placeholder.jpg'} className='w-[130px] h-[130px] rounded-xl object-cover' />
           <div>

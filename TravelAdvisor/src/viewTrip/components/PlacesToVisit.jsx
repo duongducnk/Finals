@@ -1,5 +1,6 @@
 import React from 'react'
 import PlaceCardItem from './PlaceCardItem'
+import PlaceEatCard from './PlaceEatCard'
 
 function PlacesToVisit({trip}) {
   return (
@@ -16,13 +17,21 @@ function PlacesToVisit({trip}) {
                                     <div className='my-3'>
                                         <h2 className='font-medium text-sm text-orange-600'>{placeToVisit.bestTimeToVisit}</h2>
                                         <PlaceCardItem placeToVisit={placeToVisit}/>
+                                        <h2 className='font-medium text-sm text-blue-600'>Place to eat</h2>
+                                        {placeToVisit.placeToEat?.map((placeToEat, placeToEatIndex) => (
+                                            <div key={placeToEatIndex}>
+                                                <PlaceEatCard placeToEat={placeToEat} />
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             ))}
                         </div>
+                        
                 </div>
             ))}
         </div>
+
     </div>
   )
 }

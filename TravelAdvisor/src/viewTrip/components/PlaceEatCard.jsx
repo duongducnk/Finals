@@ -2,16 +2,17 @@ import { Button } from '@/components/ui/button';
 import { GetPlaceDetails, GetPlacePhoto } from '@/service/GlobalApi';
 import React, { useEffect, useState } from 'react'
 import { FaMapLocationDot } from "react-icons/fa6";
+import { IoLocationOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 
-function PlaceCardItem({placeToVisit}) {
+function PlaceEatCard({placeToEat}) {
  const [photoUrl, setPhotoUrl] = useState();
     useEffect(() => {
-        placeToVisit && fetchPlaceDetails();
-    },[placeToVisit])
+        placeToEat && fetchPlaceDetails();
+    },[placeToEat])
     const fetchPlaceDetails = async() => {
-        const data = placeToVisit.placeName
+        const data = placeToEat.placeName
 
         try {
             const response = await GetPlaceDetails(data);
@@ -44,14 +45,16 @@ function PlaceCardItem({placeToVisit}) {
 
 
   return (
-    <Link to={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeToVisit.placeName || '')}, ${encodeURIComponent(placeToVisit.geoCoordinates.latitude || '')}, ${encodeURIComponent(placeToVisit.geoCoordinates.longitude || '')}`} target='_blank'>
+    <Link to={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(placeToEat.placeName || '')}, ${encodeURIComponent(placeToEat.geoCoordinates.latitude || '')}, ${encodeURIComponent(placeToEat.geoCoordinates.longitude || '')}`} target='_blank'>
       <div className='border rounded-xl p-3 mt-2 flex gap-5 hover:scale-105 hover:shadow-md transition-all cursor-pointer'>
           <img src={photoUrl?photoUrl:'/placeholder.jpg'} className='w-[130px] h-[130px] rounded-xl object-cover' />
           <div>
-            <h2 className='font-bold text-lg'>{placeToVisit.placeName}</h2>
-            <p className='text-sm text-gray-400'>{placeToVisit.placeDetails}</p>
-            <h2 className='text-sm mt-3'>💵 {placeToVisit.ticketPrice}</h2>
-            <h2 className='text-sm'>🕛 About {placeToVisit.timeToExplore}</h2>
+            <h2 className='font-bold text-lg'>{placeToEat.placeName}</h2>
+            <h2 className='text-xs text-gray-500 flex items-center'>
+                <IoLocationOutline />
+                {placeToEat.placeAddress}
+            </h2>
+            <h2 className='text-sm mt-5'>💵 {placeToEat.price}</h2>
             {/* <Button size='sm'>
               <FaMapLocationDot />
             </Button> */}
@@ -61,4 +64,4 @@ function PlaceCardItem({placeToVisit}) {
   )
 }
 
-export default PlaceCardItem
+export default PlaceEatCard

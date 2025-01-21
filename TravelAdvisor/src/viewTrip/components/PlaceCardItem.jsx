@@ -50,7 +50,8 @@ function PlaceCardItem({placeToVisit}) {
           <div>
             <h2 className='font-bold text-lg'>{placeToVisit.placeName}</h2>
             <p className='text-sm text-gray-400'>{placeToVisit.placeDetails}</p>
-            <h2 className='mt-2'>🕛 About {placeToVisit.timeToExplore}</h2>
+            <h2 className='text-sm'>💵 {placeToVisit.ticketPrice}</h2>
+            <h2 className='text-sm'>🕛 About {placeToVisit.timeToExplore}</h2>
             {/* <Button size='sm'>
               <FaMapLocationDot />
             </Button> */}

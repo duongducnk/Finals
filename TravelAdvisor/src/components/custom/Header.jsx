@@ -43,8 +43,8 @@ function Header() {
       <a href='/'>
         <img src='/logo.svg' className='cursor-pointer' />  
       </a>  
-        <div>
-          {
+        <div >
+          { 
             user?
             <div className='flex items-center gap-5'>
               <a href='/create-trip'>
